@@ -3,9 +3,9 @@ package com.feltap.samples.mongotutorials.model;
 import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+
+
 public class Person {
 	
 	@Id
@@ -13,11 +13,13 @@ public class Person {
 	private String name;
 	private String lastName;
 	private LocalDate birthDate;
+	private Gender gender;
 	
-	public Person(String name, String lastName, LocalDate birthDate) {
+	public Person(String name, String lastName, LocalDate birthDate, Gender gender) {
 		this.name = name;
 		this.lastName = lastName;
 		this.birthDate = birthDate;
+		this.gender = gender;
 	}
 
 	public Person() {
@@ -56,9 +58,15 @@ public class Person {
 		this.birthDate = birthDate;
 	}
 
-	@Override
-	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", lastName=" + lastName + ", birthDate=" + birthDate + "]";
+	public Gender getGender() {
+		return gender;
 	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	
+	
 	
 }
